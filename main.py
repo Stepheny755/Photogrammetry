@@ -8,7 +8,8 @@ def save_frames(video_name,path):
     success,image = vidcap.read()
     frame = 0
     while success:
-        image = rotate_image(image,270)
+        image = rotate_image(image,-90)
+        image = cv2.resize(im,(1080,1920))
         cv2.imwrite(path+("frame%d.jpg"%frame),rotated_img)
         success,image = vidcap.read()
         frame+=1
