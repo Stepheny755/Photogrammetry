@@ -1,6 +1,7 @@
-import cv2, os
+import cv2
+import os
 import numpy as np
-from PIL import Image,ExifTags
+from PIL import Image,ImageGrab,ExifTags
 
 class image_utils():
 
@@ -34,3 +35,8 @@ class image_utils():
         rows,cols = image.shape[:2]
         M = cv2.getRotationMatrix2D(center,angle,1.0)
         return cv2.warpAffine(image,M,(cols,rows))
+
+    def print_screen(self,bounding):
+        img = ImageGrab.grab(bbox=bounding)
+        img = pil_to_cv2(img)
+        return img
