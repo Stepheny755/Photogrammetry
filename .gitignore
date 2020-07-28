@@ -1,3 +1,4 @@
 *.mp4
 res/*
 data/*
+env/*
