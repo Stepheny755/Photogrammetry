@@ -3,26 +3,12 @@ from PIL import Image,ExifTags
 from process import Process
 import skimage.exposure as skie
 
-def save_frames(video_name,path):
-    vidcap = cv2.VideoCapture(path+video_name)
-    bgs = cv2.createBackgroundSubtractorMOG()
-    success,image = vidcap.read()
-    frame = 0
-    while success:
-        image = rotate_image(image,270)
-        cv2.imwrite(path+("frame%d.jpg"%frame),rotated_img)
-        success,image = vidcap.read()
-        frame+=1
-        print("Saved frame "+str(frame))
-
 def load_images(path):
     files = list([os.path.join(folder, f) for f in os.listdir(folder)])
 
 
 if(__name__=="__main__"):
     #path  = ".\data\photos1"
-
-
 
 
 '''
