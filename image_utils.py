@@ -1,6 +1,7 @@
 import cv2
 import os
 import numpy as np
+import rawpy
 from PIL import Image,ImageGrab,ExifTags
 
 class image_utils():
@@ -40,3 +41,15 @@ class image_utils():
         img = ImageGrab.grab(bbox=bounding)
         img = self.pil_to_cv2(img)
         return img
+
+    def list_images(self,path):
+        image_names = list([os.path.join(path, f) for f in os.listdir(path)])
+        return image_names
+
+    def read_images(self,path):
+        image_names = self.list_images(path)
+
+    def read_raws(self,path):
+        image_names = self.list_images(path)
+        raws = list([rawpy.imread(image_names) for f in os.listdir(path)])
+        return raws

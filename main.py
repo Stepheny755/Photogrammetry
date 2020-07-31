@@ -1,16 +1,17 @@
 import cv2, numpy as np
 from PIL import Image,ExifTags
-from process import Process
 import skimage.exposure as skie
 
-def load_images(path):
-    files = list([os.path.join(folder, f) for f in os.listdir(folder)])
-
+from image_utils import image_utils
 
 if(__name__=="__main__"):
-    #path  = ".\data\photos1"
+    iu = image_utils()
 
+    raw_path = "data\drive-download-20200716T225425Z-001"
+    jpg_path = "data\photos1"
+    workspace_path = "data\workspace1v2"
 
+    print(iu.read_raws(raw_path))
 '''
     print("here")
     img = cv2.imread("1.jpg")
