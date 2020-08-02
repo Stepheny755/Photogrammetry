@@ -1,4 +1,7 @@
-import subprocess,os
+import subprocess
+import os
+import skimage.exposure as skie
+from wand.image import Image
 
 class reconstruction():
 
@@ -11,7 +14,11 @@ class reconstruction():
             os.makedirs(work_path)
         subprocess.call([self.script_name,work_path,image_path])
 
+    def run_preprocessing(self,image_path):
+        for f in os.listdir(path):
+            with Image(filename=f) as img:
+                img = np.array(img)
 
 if(__name__=="__main__"):
     r = reconstruction()
-    r.run_auto_reconstruction("data\workspace1v2","data\photos1")
+    r.run_preprocessing("data\drive-download-20200716T225425Z-001")

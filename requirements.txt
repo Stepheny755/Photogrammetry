@@ -2,3 +2,5 @@ opencv-python
 numpy
 pillow
 pyautogui
+Wand
+scikit-image
